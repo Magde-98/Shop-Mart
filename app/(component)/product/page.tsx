@@ -3,21 +3,11 @@ import { GetAllProducts } from "@/app/api/allProduct.Api";
 import { Iproduct } from "@/app/interface/product.interface";
 import Link from "next/link";
 
-type ProductsProps = {
-  title?: string;
-};
-
-export default async function Products({ title }: ProductsProps) {
+export default async function Products() {
   const { data } = await GetAllProducts();
 
   return (
     <div className="my-5 w-[90%] mx-auto">
-      {title && (
-        <h2 className="text-3xl font-semibold py-5 text-gray-800 ps-5">
-          {title}
-        </h2>
-      )}
-
       <div className="container w-[90%] mx-auto my-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
           {data.map((product: Iproduct) => (
