@@ -2,21 +2,11 @@ import { GetAllBrands } from "@/app/api/getAllBrands.api";
 import { IBrand } from "@/app/interface/brand.interface";
 import Link from "next/link";
 
-type BrandsProps = {
-  title?: string;
-};
-
-export default async function Brands({ title }: BrandsProps) {
+export default async function Brands() {
   const { data } = await GetAllBrands();
 
   return (
     <div className="my-5">
-      {title && (
-        <h2 className="text-3xl font-semibold py-5 text-gray-800 ps-5">
-          {title}
-        </h2>
-      )}
-
       <div className="container w-[90%] mx-auto my-10">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6">
           {data.map((brand: IBrand) => (
