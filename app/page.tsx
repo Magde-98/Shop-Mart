@@ -8,7 +8,7 @@ export default function Home() {
       <MainSlider />
       <div>
         <Category />
-        <Products title="Popular Products" />
+        <Products />
       </div>
     </>
   );
