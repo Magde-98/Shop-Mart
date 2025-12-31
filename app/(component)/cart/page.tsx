@@ -52,7 +52,6 @@ export default function Cart() {
     getCartData();
   }, []);
 
-  
   useEffect(() => {
     const total = cartList.reduce(
       (sum, item) => sum + item.price * item.count,
@@ -114,9 +113,10 @@ export default function Cart() {
   return (
     <>
       {cartList.length > 0 ? (
-        <div className="container w-[90%] mx-auto my-10">
+       
+        <div className="max-w-7xl mx-auto px-4 my-10">
           <div className="flex flex-col md:flex-row gap-6 items-start">
-        
+
             <div className="md:w-3/4 w-full">
               <div className="overflow-x-auto bg-white shadow-md rounded-lg border">
                 <table className="w-full min-w-[600px] text-sm">
@@ -204,7 +204,7 @@ export default function Cart() {
                               className="text-red-500 w-20 h-7 flex justify-center items-center"
                             >
                               {isRemoving &&
-                              removingId === p.product._id ? (
+                                removingId === p.product._id ? (
                                 <i className="fa-solid fa-spinner animate-spin"></i>
                               ) : (
                                 "Remove"
@@ -217,16 +217,14 @@ export default function Cart() {
                   </tbody>
                 </table>
 
-              
                 <div className="p-4 border-t flex justify-end">
                   <button
                     onClick={clearAllProduct}
                     disabled={isClearing}
-                    className={`flex items-center gap-2 px-6 py-2 text-white rounded-md ${
-                      isClearing
+                    className={`flex items-center gap-2 px-6 py-2 text-white rounded-md ${isClearing
                         ? "bg-red-400 cursor-not-allowed"
                         : "bg-red-500 hover:bg-red-600"
-                    }`}
+                      }`}
                   >
                     {isClearing ? (
                       <>
@@ -244,7 +242,7 @@ export default function Cart() {
               </div>
             </div>
 
-        
+     
             <div className="md:w-1/4 w-full sticky top-24">
               <div className="bg-white p-6 rounded-lg shadow-md flex flex-col gap-4">
                 <h2 className="text-xl font-semibold">Cart Summary</h2>
@@ -274,7 +272,6 @@ export default function Cart() {
           </div>
         </div>
       ) : (
-  
         <div className="flex flex-col items-center gap-4 my-24">
           <i className="fa-solid fa-cart-shopping text-6xl text-gray-300"></i>
           <h1 className="text-gray-500 font-semibold">

@@ -33,65 +33,64 @@ export default function CategoryDetails() {
     if (loading) return <Loading />;
 
     return (
-        <div className="my-5 w-[90%] mx-auto">
-            <h2 className="text-3xl font-semibold py-5 text-gray-800 ps-5">
+        <div className="max-w-7xl mx-auto px-4 my-10">
+            <h2 className="text-3xl font-semibold mb-8 text-gray-800">
                 Category Products
             </h2>
 
-            <div className="container w-[90%] mx-auto my-10">
-                {products.length === 0 ? (
-                    <p className="text-center text-gray-500 text-xl">
-                        No products found in this category
-                    </p>
-                ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-                        {products.map((product) => (
-                            <div
-                                key={product._id}
-                                className="bg-white shadow-md hover:shadow-xl transition-shadow duration-300 rounded-xl overflow-hidden group"
-                            >
-                                <Link href={`/product/${product._id}`}>
-                                    <div className="overflow-hidden">
-                                        <img
-                                            src={product.imageCover}
-                                            alt={product.title}
-                                            className="w-full h-auto max-h-64 object-contain bg-gray-100"
-                                        />
-                                    </div>
+            {products.length === 0 ? (
+                <p className="text-center text-gray-500 text-xl">
+                    No products found in this category
+                </p>
+            ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {products.map((product) => (
+                        <div
+                            key={product._id}
+                            className="bg-white shadow-md hover:shadow-xl transition-shadow duration-300 rounded-xl overflow-hidden group"
+                        >
+                            <Link href={`/product/${product._id}`}>
+                                <div className="overflow-hidden">
+                                    <img
+                                        src={product.imageCover}
+                                        alt={product.title}
+                                        className="w-full h-auto max-h-64 object-contain bg-gray-100"
+                                    />
+                                </div>
 
-                                    <div className="p-4">
-                                        <h4 className="text-green-700 text-sm font-medium">
-                                            {product.category.name}
-                                        </h4>
+                                <div className="p-4">
+                                    <h4 className="text-green-700 text-sm font-medium">
+                                        {product.category.name}
+                                    </h4>
 
-                                        <h3 className="text-xl font-semibold text-gray-800 truncate">
-                                            {product.title}
-                                        </h3>
+                                    <h3 className="text-xl font-semibold text-gray-800 truncate">
+                                        {product.title}
+                                    </h3>
 
-                                        <div className="flex justify-between items-center mt-3">
-                                            <span className="text-lg font-bold text-green-700">
-                                                {product.price} EGP
+                                    <div className="flex justify-between items-center mt-3">
+                                        <span className="text-lg font-bold text-green-700">
+                                            {product.price} EGP
+                                        </span>
+
+                                        <div className="flex items-center gap-1 text-yellow-400">
+                                            <i className="fa-solid fa-star"></i>
+                                            <span className="text-gray-700">
+                                                {product.ratingsAverage}
                                             </span>
-
-                                            <div className="flex items-center gap-1 text-yellow-400">
-                                                <i className="fa-solid fa-star"></i>
-                                                <span className="text-gray-700">
-                                                    {product.ratingsAverage}
-                                                </span>
-                                            </div>
                                         </div>
                                     </div>
-                                </Link>
+                                </div>
+                            </Link>
 
-                                <AddBtn
-                                    id={product._id}
-                                    className="py-3 bg-green-600 text-white font-medium hover:bg-green-700"
-                                />
-                            </div>
-                        ))}
-                    </div>
-                )}
-            </div>
+                            <AddBtn
+                                id={product._id}
+                                className="py-3 bg-green-600 text-white font-medium hover:bg-green-700"
+                            />
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
+

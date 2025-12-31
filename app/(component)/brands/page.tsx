@@ -7,7 +7,7 @@ export default async function Brands() {
 
   return (
     <div className="my-5">
-      <div className="container w-[90%] mx-auto my-10">
+      <div className="max-w-7xl mx-auto px-4 my-10">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6">
           {data.map((brand: IBrand) => (
             <Link
@@ -37,3 +37,4 @@ export default async function Brands() {
     </div>
   );
 }
+

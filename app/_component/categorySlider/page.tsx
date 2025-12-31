@@ -11,7 +11,7 @@ import Link from "next/link";
 export default function CategorySlider({ category }: { category: Category[] }) {
   return (
     <div className="my-8">
-      <h2 className="text-3xl font-semibold py-5 text-gray-800 ps-5">Popular Categories</h2>
+      <h2 className="text-3xl font-semibold py-5 text-gray-800 ">Popular Categories</h2>
 
       <Swiper
         spaceBetween={15}

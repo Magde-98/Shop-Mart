@@ -7,12 +7,12 @@ export default async function ProductDetails({
 }: {
     params: Promise<{ id: string }>;
 }) {
-    const { id } = await params; 
+    const { id } = await params;
 
     const { data } = await GetProductDetails(id);
 
     return (
-        <div className="container w-[90%] mx-auto py-10">
+        <div className="max-w-7xl mx-auto px-4 py-10">
             <div className="flex flex-col md:flex-row gap-8">
                 <div className="md:w-1/3 w-full">
                     <ProductSlider
@@ -69,3 +69,4 @@ export default async function ProductDetails({
         </div>
     );
 }
+
