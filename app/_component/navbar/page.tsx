@@ -23,17 +23,16 @@ export default function Navbar() {
 
   const navLinkClass = (path: string) =>
     `px-3 py-1.5 rounded-md transition
-     ${
-       pathname === path
-         ? "bg-gray-200 text-green-600 font-semibold"
-         : "text-gray-700 hover:bg-gray-100"
-     }`;
+     ${pathname === path
+      ? "bg-gray-200 text-green-600 font-semibold"
+      : "text-gray-700 hover:bg-gray-100"
+    }`;
 
   return (
-    <nav className="bg-white shadow-sm py-4 sticky top-0 z-50">
-      <div className="container mx-auto flex items-center justify-between px-4">
+    <nav className="bg-white shadow-sm py-4 sticky top-0 z-50 w-full">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4">
 
-       
+
         <Link href="/" className="flex items-center gap-3">
           <i className="fa-solid fa-cart-shopping text-green-600 text-3xl"></i>
           <span className="text-3xl font-semibold">
@@ -41,7 +40,6 @@ export default function Navbar() {
           </span>
         </Link>
 
-      
         <ul className="hidden md:flex items-center gap-2 text-lg font-medium">
           <li><Link href="/" className={navLinkClass("/")}>Home</Link></li>
           <li><Link href="/product" className={navLinkClass("/product")}>Products</Link></li>
@@ -49,18 +47,17 @@ export default function Navbar() {
           <li><Link href="/brands" className={navLinkClass("/brands")}>Brands</Link></li>
         </ul>
 
-      
+
         <div className="hidden md:flex items-center gap-6">
           {session ? (
             <>
-              
               <Link href="/cart" className="relative">
                 <i className="fa-solid fa-cart-shopping text-2xl text-green-600"></i>
-                {dataDetails !== null && dataDetails > 0 && (
+                {dataDetails > 0 && (
                   <span className="absolute -top-2 -right-2 min-w-5 h-5
                     flex items-center justify-center text-xs font-bold
                     text-white bg-red-600 rounded-full px-1.5
-                    shadow-md border-2 border-white">
+                    border-2 border-white">
                     {dataDetails}
                   </span>
                 )}
@@ -72,7 +69,7 @@ export default function Navbar() {
 
               <button
                 onClick={logOut}
-                className="hover:text-red-600 transition cursor-pointer"
+                className="hover:text-red-600 transition"
               >
                 LogOut
               </button>
@@ -85,15 +82,15 @@ export default function Navbar() {
           )}
         </div>
 
-    
+
         <div className="md:hidden flex items-center gap-4">
           <Link href="/cart" className="relative">
             <i className="fa-solid fa-cart-shopping text-2xl text-green-600"></i>
-            {dataDetails !== null && dataDetails > 0 && (
+            {dataDetails > 0 && (
               <span className="absolute -top-2 -right-2 min-w-5 h-5
                 flex items-center justify-center text-xs font-bold
                 text-white bg-red-600 rounded-full px-1.5
-                shadow-md border-2 border-white">
+                border-2 border-white">
                 {dataDetails}
               </span>
             )}
@@ -105,7 +102,7 @@ export default function Navbar() {
         </div>
       </div>
 
-  
+
       <div
         className={`md:hidden bg-white shadow-md overflow-hidden transition-all duration-300
         ${isOpen ? "max-h-[500px] py-4" : "max-h-0"}`}
@@ -119,16 +116,13 @@ export default function Navbar() {
           {session && (
             <>
               <hr className="my-2" />
-
               <li className="px-3 py-2 text-gray-700 font-medium">
                 Hi, {session.user?.name}
               </li>
-
               <li>
                 <button
                   onClick={logOut}
-                  className="w-full text-left px-3 py-2
-                  text-red-600 hover:bg-red-50 rounded-md transition"
+                  className="w-full text-left px-3 py-2 text-red-600 hover:bg-red-50 rounded-md"
                 >
                   LogOut
                 </button>
