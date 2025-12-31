@@ -162,7 +162,7 @@ export default function Cart() {
                                   )
                                 }
                                 disabled={isThisUpdating}
-                                className="px-2 py-1 bg-gray-200 rounded"
+                                className="px-2 py-1 bg-gray-200 rounded cursor-pointer"
                               >
                                 -
                               </button>
@@ -183,7 +183,7 @@ export default function Cart() {
                                   )
                                 }
                                 disabled={isThisUpdating}
-                                className="px-2 py-1 bg-gray-200 rounded"
+                                className="px-2 py-1 bg-gray-200 rounded cursor-pointer"
                               >
                                 +
                               </button>
@@ -201,7 +201,7 @@ export default function Cart() {
                                 isRemoving &&
                                 removingId === p.product._id
                               }
-                              className="text-red-500 w-20 h-7 flex justify-center items-center"
+                              className="text-red-500 w-20 h-7 flex justify-center items-center cursor-pointer"
                             >
                               {isRemoving &&
                                 removingId === p.product._id ? (

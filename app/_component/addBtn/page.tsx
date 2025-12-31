@@ -13,9 +13,8 @@ interface AddBtnProps {
 export default function AddBtn({ id, className = "" }: AddBtnProps) {
   const context = useContext(cartItemContext);
 
-  if (!context) {
-    throw new Error("Cart context does not exist");
-  }
+  if (!context) return null;
+
 
   const { setDetails } = context;
 
